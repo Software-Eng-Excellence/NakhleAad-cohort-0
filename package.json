@@ -11,7 +11,8 @@
     "postbuild": "echo \"Finished build with size: $(du -sh build | cut -f1)\"",
     "prestart": "npm run build",
     "start": "node build/index.js",
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Nakhle Aad",
@@ -30,6 +31,8 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "winston": "^3.17.0"
+
   }
 }
