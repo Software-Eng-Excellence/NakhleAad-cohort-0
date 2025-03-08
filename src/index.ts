@@ -1,5 +1,5 @@
-import { FinanceCalculator, ItemValidator, MaxPriceValidator, OrderManagement, PriceValidator, Validator } from "app";
-  
+import { FinanceCalculator, ItemValidator, MaxPriceValidator, OrderManagement, PriceValidator, Validator } from "./app";
+import logger from "./util/logger";
   const orders = [
     { id: 1, item: "Sponge", price: 15 },
     { id: 2, item: "Chocolate", price: 20 },
@@ -25,20 +25,20 @@ import { FinanceCalculator, ItemValidator, MaxPriceValidator, OrderManagement, P
 
   orderManager.addOrder(newItem, newPrice);
   
-  console.log("Orders after adding a new order:", orderManager.getOrders());
+  logger.info("Orders after adding a new order: %o", orderManager.getOrders());
   
   // Calculate Total Revenue directly
-  console.log("Total Revenue:", orderManager.getTotalRevenue());
+  logger.info("Total Revenue:"+ orderManager.getTotalRevenue());
   
   // Calculate Average Buy Power directly
-  console.log("Average Buy Power:", orderManager.getBuyPower().toFixed(2));
+  logger.info("Average Buy Power:"+ orderManager.getBuyPower().toFixed(2));
   
   // Fetching an order directly
   const fetchId = 2;
   const fetchedOrder = orderManager.getOrder(fetchId);
-  console.log("Order with ID 2:", fetchedOrder);
+  logger.info("Order with ID 2: %o", fetchedOrder);
   
   // Attempt to fetch a non-existent order
   const nonExistentId = 10;
   const nonExistentOrder = orderManager.getOrder(nonExistentId);
-  console.log("Order with ID 10 (non-existent):", nonExistentOrder);
+  logger.info("Order with ID 10 (non-existent):"+ nonExistentOrder);
