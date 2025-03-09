@@ -29,24 +29,3 @@ export async function readCSVFile(filePath: string,includeHeader: boolean = fals
     }
 }
 
-/**
- * Writes a 2D array of strings to a CSV file
- * @param filePath - Path where the CSV file will be written
- * @param data - 2D array of strings to write
- * @returns Promise<void>
- */
-export async function writeCSVFile(filePath: string, data: string[][]): Promise<void> {
-    try {
-        const csvContent = await new Promise((resolve, reject) => {
-            csvStringify(data, (err, output) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(output);
-                }
-            });
-        });
-    } catch (error) {
-        throw new Error(`Error writing CSV file: ${error}`);
-    }
-}
