@@ -1,10 +1,9 @@
 import { Item, ItemCategory } from "./Item.model";
 
-type Type = "Birthday" | "Wedding" | "Anniversary" | "Graduation" | "Baby Shower" | "Other";
 
 export class Cake implements Item {
 
-    private type: Type;
+    private type: string;
     private flavor: string;
     private filling: string;
     private size: string;
@@ -21,7 +20,7 @@ export class Cake implements Item {
 
 
     constructor(
-        type: Type,
+        type: string,
         flavor: string,
         filling: string,
         size: string,
@@ -56,7 +55,7 @@ export class Cake implements Item {
     getCategory(): ItemCategory {
         return ItemCategory.CAKE;
     }
-    getType(): Type {
+    getType(): string {
         return this.type;
     }
 
